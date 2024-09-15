@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkmr88t83s54d"]
+
+[ext_resource type="Texture2D" uid="uid://q3yl533icun6" path="res://assets/spritesheet.png" id="1_0bvw3"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_n5m7j"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g1jys"]
+friction = 0.0
+bounce = 0.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rgu2"]
+atlas = ExtResource("1_0bvw3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wy0jp"]
+radius = 34.0147
+
+[node name="Player" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_g1jys")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_n5m7j")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_3rgu2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wy0jp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

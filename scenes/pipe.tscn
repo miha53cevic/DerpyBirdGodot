@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdjvwn5j6nw6g"]
+
+[ext_resource type="Script" path="res://scripts/pipe.gd" id="1_o3qcs"]
+[ext_resource type="Texture2D" uid="uid://q3yl533icun6" path="res://assets/spritesheet.png" id="1_y5gi3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct3fl"]
+atlas = ExtResource("1_y5gi3")
+region = Rect2(896, 0, 64, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgp4i"]
+size = Vector2(64, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abllb"]
+atlas = ExtResource("1_y5gi3")
+region = Rect2(960, 0, 64, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpbfe"]
+size = Vector2(64, 384)
+
+[node name="Pipe" type="Node2D"]
+script = ExtResource("1_o3qcs")
+
+[node name="Up" type="StaticBody2D" parent="."]
+position = Vector2(-162, -14)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Up"]
+texture = SubResource("AtlasTexture_ct3fl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
+shape = SubResource("RectangleShape2D_sgp4i")
+
+[node name="Down" type="StaticBody2D" parent="."]
+position = Vector2(-92, -13)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Down"]
+texture = SubResource("AtlasTexture_abllb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
+shape = SubResource("RectangleShape2D_lpbfe")
