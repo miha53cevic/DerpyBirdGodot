@@ -21,12 +21,14 @@ grow_vertical = 2
 color = Color(0, 1, 1, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_4d1ss")]
-position = Vector2(239, 305)
+position = Vector2(208, 300)
 
 [node name="Ground" parent="." instance=ExtResource("2_ovs3g")]
-position = Vector2(320, 656)
+z_index = 1
+position = Vector2(320, 576)
 
-[node name="ScoreTimer" type="Timer" parent="."]
+[node name="PipeSpawnTimer" type="Timer" parent="."]
+wait_time = 4.0
 
 [connection signal="restart_clicked" from="Hud" to="." method="_on_hud_restart_clicked"]
-[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="PipeSpawnTimer" to="." method="_on_pipe_spawn_timer_timeout"]

@@ -17,11 +17,12 @@ region = Rect2(960, 0, 64, 384)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpbfe"]
 size = Vector2(64, 384)
 
-[node name="Pipe" type="Node2D"]
+[node name="Pipe" type="Node2D" groups=["pipes"]]
 script = ExtResource("1_o3qcs")
+metadata/_edit_group_ = true
 
-[node name="Up" type="StaticBody2D" parent="."]
-position = Vector2(-162, -14)
+[node name="Up" type="StaticBody2D" parent="." groups=["obstacle"]]
+position = Vector2(-32, 448)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Up"]
@@ -30,8 +31,8 @@ texture = SubResource("AtlasTexture_ct3fl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
 shape = SubResource("RectangleShape2D_sgp4i")
 
-[node name="Down" type="StaticBody2D" parent="."]
-position = Vector2(-92, -13)
+[node name="Down" type="StaticBody2D" parent="." groups=["obstacle"]]
+position = Vector2(-33, 192)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Down"]
