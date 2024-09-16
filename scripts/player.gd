@@ -25,6 +25,7 @@ func _physics_process(delta: float) -> void:
 		var jump_velocity = -self.upward_speed * delta;
 		self.linear_velocity.y = jump_velocity;
 		self.angular_velocity = -rotation_up_speed * delta;
+		$FlapSound.play();
 	else:
 		self.state = STATE.Falling;
 		self.angular_velocity = rotation_down_speed * delta;

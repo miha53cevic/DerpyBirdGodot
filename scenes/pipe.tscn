@@ -22,7 +22,7 @@ script = ExtResource("1_o3qcs")
 metadata/_edit_group_ = true
 
 [node name="Up" type="StaticBody2D" parent="." groups=["obstacle"]]
-position = Vector2(-32, 448)
+position = Vector2(0, 448)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Up"]
@@ -32,7 +32,7 @@ texture = SubResource("AtlasTexture_ct3fl")
 shape = SubResource("RectangleShape2D_sgp4i")
 
 [node name="Down" type="StaticBody2D" parent="." groups=["obstacle"]]
-position = Vector2(-33, 192)
+position = Vector2(0, 192)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Down"]

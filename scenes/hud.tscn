@@ -1,11 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckoy5t3k72xpc"]
+[gd_scene load_steps=8 format=3 uid="uid://ckoy5t3k72xpc"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_eggmt"]
 [ext_resource type="Texture2D" uid="uid://q3yl533icun6" path="res://assets/spritesheet.png" id="2_6aeor"]
 
+[sub_resource type="InputEventAction" id="InputEventAction_swckd"]
+action = &"jump"
+
+[sub_resource type="Shortcut" id="Shortcut_m7bad"]
+events = [SubResource("InputEventAction_swckd")]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ax0yx"]
 atlas = ExtResource("2_6aeor")
 region = Rect2(0, 288, 256, 96)
+
+[sub_resource type="InputEventAction" id="InputEventAction_chkeb"]
+action = &"jump"
+
+[sub_resource type="Shortcut" id="Shortcut_epuln"]
+events = [SubResource("InputEventAction_chkeb")]
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_eggmt")
@@ -36,6 +48,45 @@ offset_right = 128.0
 offset_bottom = -124.0
 grow_horizontal = 2
 grow_vertical = 0
+shortcut = SubResource("Shortcut_m7bad")
 texture_normal = SubResource("AtlasTexture_ax0yx")
 
+[node name="Start" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.5
+offset_top = -7.0
+offset_right = 182.5
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 64
+shortcut = SubResource("Shortcut_epuln")
+text = "Tap to start"
+flat = true
+
+[node name="Highscore" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.5
+offset_top = -147.5
+offset_right = 142.5
+offset_bottom = -80.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Highscore: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
